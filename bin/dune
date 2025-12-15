@@ -1,0 +1,4 @@
+(executable
+ (public_name sokoban)
+ (name main)
+ (libraries sokoban terml))
