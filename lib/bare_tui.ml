@@ -19,7 +19,11 @@ let play () =
     try Grid.levels.(0) |> Grid.copy |> Game.play with
     | effect Game.Draw g, k ->
       print_newline ();
-      Array.iter (fun row -> print_bytes row; print_newline ()) g;
+      Array.iter
+        (fun row ->
+          print_bytes row;
+          print_newline ())
+        g;
       continue k ()
     | effect Game.GetMove (), k ->
       incr moves;
