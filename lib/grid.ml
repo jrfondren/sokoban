@@ -34,7 +34,7 @@ let where g =
     for y = 0 to Array.length g - 1 do
       for x = 0 to Bytes.length g.(y) - 1 do
         match Bytes.get g.(y) x with
-        | '@' | '&' -> raise (Return (x, y))
+        | '@' | '&' -> raise_notrace (Return (x, y))
         | _ -> ()
       done
     done;
