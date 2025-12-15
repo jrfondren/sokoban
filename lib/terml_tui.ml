@@ -33,9 +33,7 @@ let redraw g =
   Array.iteri
     (fun i row ->
       cmd @@ Command.Cursor Cursor.(MoveTo (i + 2, 1));
-      Array.iter
-        (fun tile -> cmd @@ Command.Print (Grid.string_of_tile tile))
-        row)
+      cmd @@ Command.Print (Bytes.to_string row))
     g;
   Command.execute (Queue.to_seq q |> List.of_seq)
 
